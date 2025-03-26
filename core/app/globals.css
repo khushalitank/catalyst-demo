@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+    .custom-btn {
+    background-color: red;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+
+    }
+  } */
