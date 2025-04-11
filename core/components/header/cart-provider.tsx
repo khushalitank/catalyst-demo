@@ -7,6 +7,8 @@ interface CartContext {
   increment: (step?: number) => void;
   decrement: (step?: number) => void;
   setCount: (newCount: number) => void;
+  isOpen: boolean;
+  toggleCart: () => void;
 }
 
 const CartContext = createContext<CartContext | undefined>(undefined);
@@ -15,12 +17,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [count, setCount] = useState(0);
   const increment = useCallback((step = 1) => setCount((prev) => prev + step), []);
   const decrement = useCallback((step = 1) => setCount((prev) => prev - step), []);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleCart = useCallback(() => setIsOpen((prev) => !prev), []);
+  // console.log("isopen",isOpen);
+  
   const value = useMemo(
-    () => ({ count, increment, decrement, setCount }),
-    [count, increment, decrement],
+    () => ({ count, increment, decrement, setCount ,isOpen, toggleCart }),
+    [count, increment,isOpen,  decrement],
   );
-
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 

@@ -64,7 +64,7 @@ export default async function Home({ params }: Props) {
         <ProductCardCarousel
           products={featuredProducts}
           showCart={false}
-          showCompare={false}
+          showCompare={true}
           title={t('Carousel.featuredProducts')}
         />
         <ProductCardCarousel

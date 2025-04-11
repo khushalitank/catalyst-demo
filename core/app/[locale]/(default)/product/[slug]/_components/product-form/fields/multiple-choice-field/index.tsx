@@ -27,8 +27,15 @@ export const MultipleChoiceField = ({ option }: Props) => {
 
   const searchParamSelected = searchParams.get(String(option.entityId));
   const values = removeEdgesAndNodes(option.values);
-
+ // Check if the 'QuickViewModal' class is present in the DOM
+ const isQuickView = document.querySelector('.customQuickModal') !== null;
+//  console.log("isQuickView==>",isQuickView);
+ 
   const handleInteraction = ({ optionId, valueId, prefetch = false }: InteractionOptions) => {
+    if (isQuickView) {
+      // If Quick View modal is found, don't update the URL
+      return;
+    }
     const optionSearchParams = new URLSearchParams(searchParams.toString());
 
     optionSearchParams.set(String(optionId), String(valueId));

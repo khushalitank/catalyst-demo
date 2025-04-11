@@ -159,8 +159,8 @@ export const ProductForm = ({ data: product }: Props) => {
         <QuantityField />
 
         <div className="mt-4 flex flex-col gap-4 @md:flex-row">
-          <Submit data={product} />
-
+          kk<Submit data={product} />
+kk
           {/* NOT IMPLEMENTED YET */}
           <div className="w-full">
             <Button disabled type="submit" variant="secondary">

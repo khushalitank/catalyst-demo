@@ -18,7 +18,7 @@ interface CartIconProps {
 }
 
 export const CartIcon = ({ count: serverCount }: CartIconProps) => {
-  const { count, setCount } = useCart();
+  const { count, setCount,toggleCart } = useCart();
   const locale = useLocale();
   const t = useTranslations('Components.Header.MiniCart');
 
@@ -45,10 +45,13 @@ export const CartIcon = ({ count: serverCount }: CartIconProps) => {
   }
 
   return (
-    <>
+    <button onClick={(event) => {
+      event.preventDefault();
+      toggleCart();
+    }}>
       <span className="sr-only">{t('items')}</span>
       <ShoppingCart aria-hidden="true" />
       <Badge>{count}</Badge>
-    </>
+    </button>
   );
 };

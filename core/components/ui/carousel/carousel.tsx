@@ -23,6 +23,7 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
     loop: true,
     axis: 'x',
   });
+// console.log("api=",api);
 
   const t = useTranslations('Components.Carousel');
 
@@ -41,6 +42,7 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
       return batches;
     }, []);
   }, [products, itemsPerGroup]);
+// console.log("grouper prd",groupedProducts);
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -53,6 +55,7 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
     if (!emblaApi) {
       return;
     }
+// console.log("emblaApi",emblaApi);
 
     setSelectedSnapIndex(emblaApi.selectedScrollSnap());
 
@@ -142,6 +145,7 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
 
       <div className="-mx-2 overflow-hidden px-2" ref={carouselRef}>
         <div className="-mx-4 mb-16 mt-8 flex lg:mt-10">
+          {/* for product card */}
           {groupedProducts.map((group, index) => (
             <div
               aria-label={`${index + 1} of ${groupedProducts.length}`}
@@ -168,6 +172,7 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
         )}
         role="tablist"
       >
+        {/* for scroll tabs */}
         {groupedProducts.map((_, index) => (
           <button
             aria-controls={`${id}-slide-${index + 1}`}

@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { PropsWithChildren, Suspense } from 'react';
+import SideCart from '~/components/customComponent/sidecard/sidecart';
 
 import { Footer } from '~/components/footer/footer';
 import { Header, HeaderSkeleton } from '~/components/header';
@@ -18,6 +19,7 @@ export default async function DefaultLayout({ params, children }: Props) {
     <>
       <Suspense fallback={<HeaderSkeleton />}>
         <Header cart={<Cart />} />
+        <SideCart/>
       </Suspense>
 
       <main className="flex-1 px-4 2xl:container sm:px-10 lg:px-12 2xl:mx-auto 2xl:px-0">

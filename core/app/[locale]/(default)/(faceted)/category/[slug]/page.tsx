@@ -89,8 +89,8 @@ export default async function Category(props: Props) {
             </FacetedSearch>
           </MobileSideNav>
           <div className="flex w-full flex-col items-start gap-4 md:flex-row md:items-center md:justify-end md:gap-6">
-            <SortBy />
-            <div className="order-3 py-4 text-base font-semibold md:order-2 md:py-0">
+          kk  <SortBy />kk
+           <div className="order-3 py-4 text-base font-semibold md:order-2 md:py-0">
               {t('sortBy', { items: productsCollection.collectionInfo?.totalItems ?? 0 })}
             </div>
           </div>
@@ -98,7 +98,7 @@ export default async function Category(props: Props) {
       </div>
 
       <div className="grid grid-cols-4 gap-8">
-        <FacetedSearch
+       mm <FacetedSearch
           className="mb-8 hidden lg:block"
           facets={search.facets.items}
           headingId="desktop-filter-heading"
@@ -106,7 +106,7 @@ export default async function Category(props: Props) {
         >
           <SubCategories categoryTree={categoryTree} />
         </FacetedSearch>
-
+mm
         <section
           aria-labelledby="product-heading"
           className="col-span-4 group-has-[[data-pending]]:animate-pulse lg:col-span-3"
